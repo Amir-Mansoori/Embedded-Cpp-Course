@@ -9,6 +9,8 @@ Volatile keyword tells the compiler that the variable can change outside of your
 It is important in embedded systems because registers, sensors, interrupts, or DMA might change the memory contents at any time.
 Without volatile, the compiler may cache a variable in a register and never reload from memory, meaning that you could miss changes from hardware.
 
+Best usage for volatile variables is when reading/writing hardware registers, interfacing with global flags modified in ISRs, and when using shared variables between threads.
+
 In this section, you will find examples of the most common use cases of volatile in embedded systems.
 
 
