@@ -10,7 +10,12 @@ It is important in embedded systems because registers, sensors, interrupts, or D
 Without volatile, the compiler may cache a variable in a register and never reload from memory, meaning that you could miss changes from hardware.
 
 Example:
-
+```
+$ volatile uint32_t* status_reg = (uint32_t*)0x40000010;
+$ while ((*status_reg & 0x1) == 0) {
+$    // Wait until the READY bit is set
+$ }
+```
 
 
  Refer to [This page](https://www.geeksforgeeks.org/volatile-qualifier-in-cpp/) for more explanation.
