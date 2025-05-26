@@ -9,13 +9,7 @@ Volatile keyword tells the compiler that the variable can change outside of your
 It is important in embedded systems because registers, sensors, interrupts, or DMA might change the memory contents at any time.
 Without volatile, the compiler may cache a variable in a register and never reload from memory, meaning that you could miss changes from hardware.
 
-Example:
-```
-$ volatile uint32_t* status_reg = (uint32_t*)0x40000010;
-$ while ((*status_reg & 0x1) == 0) {
-$    // Wait until the READY bit is set
-$ }
-```
+In this section, you will find examples of the most common use cases of volatile in embedded systems.
 
 
  [Reference](https://www.geeksforgeeks.org/volatile-qualifier-in-cpp/)
