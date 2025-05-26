@@ -18,4 +18,4 @@ $ }
 ```
 
 
- Refer to [This page](https://www.geeksforgeeks.org/volatile-qualifier-in-cpp/) for more explanation.
+ [Reference](https://www.geeksforgeeks.org/volatile-qualifier-in-cpp/) for more explanation.
