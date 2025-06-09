@@ -15,3 +15,39 @@ Object file (.o)
    ↓  [Linker: combines .o + startup + script]
 Final Executable (.elf / .bin / .hex)
 ```
+# GCC Toolchain Essentials
+
+| Tool  | Use |
+| ------------- | ------------- |
+|arm-none-eabi-gcc |	Compile C files for ARM Cortex-M
+|arm-none-eabi-g++  | Compile C++ files for ARM
+|ld	| Link object files using a script
+|objcopy	| Convert .elf → .bin / .hex
+|nm, size, objdump	| Inspect symbols, memory size
+
+ # GCC Flags You Must Know
+ 
+|Flag |	Description |
+| ------------- | ------------- |
+|-mcpu=cortex-m4	|Target specific CPU core
+|-mthumb |	Generate Thumb instructions
+|-O0 → -O3	|Optimization level
+|-g	|Include debug symbols
+|-Wall	|Enable all warnings
+|-T link.ld	|Use custom linker script
+|-c	|Compile only, no linking
+|-o	| Output file name
+
+🧠 Key Concepts
+📌 Storage Duration
+Keyword	Lifetime	Scope
+int x; (global)	Static	Global
+static int x;	Static	File (internal linkage)
+static int x; (inside function)	Static	Function
+int x; (inside function)	Automatic	Function
+
+📌 Linkage
+Type	Meaning
+External (default for globals)	Visible across files
+Internal (static)	Visible only in the current file
+None (locals)	Only usable within function
