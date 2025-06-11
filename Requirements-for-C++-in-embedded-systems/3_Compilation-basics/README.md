@@ -15,8 +15,52 @@ Object file (.o)
    ↓  [Linker: combines .o + startup + script]
 Final Executable (.elf / .bin / .hex)
 ```
-## GCC Essentials
-Stands for GNU Compiler for C/C++ (GCC). **gcc** and **g++** both compile C codes into the assembly/object files. If we use `-c` flag, the output will be the object file, otherwise the output will be the executable:
+### Preprocessor
+The preprocessor takes the C code and generates the .i file. The following command can be used:
+
+`g++ -E main.cpp -o main.i`
+
+The Preprocessor:
+- Expands macros (#define), so it replaces all the macros in the code with their actual values
+- Replaces #include with actual file content
+- Removes comments
+- Handles conditionals like #ifdef, #ifndef
+### Compiler
+The compiler takes that .i file and translates it into low-level assembly instructions specific to your CPU architecture that is the .s file. The following command can be used:
+
+`g++ -S main.cpp -o main.s`
+
+The .s file contains **human-readable assembly code**, for example (x86-64):
+```
+.file   "main.cpp"
+    .text
+    .globl  main
+    .type   main, @function
+main:
+    pushq   %rbp
+    movq    %rsp, %rbp
+    movl    $0, %eax
+    popq    %rbp
+    ret
+```
+if you use the assembler on:
+```
+int main() {
+    return 0;
+}
+```
+
+### Assembler
+The assembler takes the human-readable assembly code **(.s)** to binary machine code stored in an object file **(.o)**.
+
+
+The following gcc command can be used:
+
+`g++ -c main.s -o main.o`
+
+At the end, we will have the object file main.o which is a binary file. 
+## GCC common flags
+GCC stands for GNU Compiler for C/C++ (GCC). **gcc** and **g++** both compile C codes into the assembly/object files. If we use `-c` flag, the output will be the object file, otherwise the output will be the executable:
 ```
 gcc main.c -o main
 g++ main.cpp -o main
