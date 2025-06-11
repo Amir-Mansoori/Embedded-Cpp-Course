@@ -1,6 +1,6 @@
 # Compilation Basics in embedded software design
 
-This page summarizes key concepts an embedded software designer should know about the compilation process, toolchains, and build systems when writing firmware in C or C++. Two examples are provided to learn how to use make and CMake tools.
+This page summarizes key concepts an embedded software designer should know about the compilation process, toolchains, and build systems when writing firmware in C or C++. Two examples are provided to learn how to use make and CMake tools (make_demo and cmake_demo).
 
 Compilation Pipeline:
 
