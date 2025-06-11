@@ -15,26 +15,25 @@ Object file (.o)
    ↓  [Linker: combines .o + startup + script]
 Final Executable (.elf / .bin / .hex)
 ```
-# GCC Toolchain Essentials
+## GCC Essentials
+Stands for GNU Compiler for C/C++ (GCC). gcc and g++ both compile C codes into the assembly/object files. If we use `-c` flag, the output will be the object file, otherwise the output will be the executable:
+```
+gcc main.c -o main
+g++ main.cpp -o main
+```
 
-| Tool  | Use |
-| ------------- | ------------- |
-|arm-none-eabi-gcc |	Compile C files for ARM Cortex-M
-|arm-none-eabi-g++  | Compile C++ files for ARM
-|ld	| Link object files using a script
-|objcopy	| Convert .elf → .bin / .hex
-|nm, size, objdump	| Inspect symbols, memory size
-
- # GCC Flags You Must Know
- 
+common flags used in gcc:
+	
 |Flag |	Description |
 | ------------- | ------------- |
+|-c	|Compile only, no linking
+|-o	| Output file name
+|-I   |  Include path for headers
+|-L   | Library path
+|-l<lib>   | Link with a library (e.g. -lm for math)
 |-mcpu=cortex-m4	|Target specific CPU core
-|-mthumb |	Generate Thumb instructions
 |-O0 → -O3	|Optimization level
 |-g	|Include debug symbols
 |-Wall	|Enable all warnings
 |-T link.ld	|Use custom linker script
-|-c	|Compile only, no linking
-|-o	| Output file name
 
