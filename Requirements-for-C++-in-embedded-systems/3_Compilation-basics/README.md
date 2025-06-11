@@ -60,6 +60,53 @@ The following gcc command can be used:
 
 At the end, we will have the object file main.o which is a binary file. 
 ### Linker
+The linker takes one or more object files (.o) and combines them into a final executable (like main.exe)
+It also resolves symbol references between files and arranges the final memory layout (especially important in embedded systems).
+
+This is a simple example to show how Linking works. Let’s say you have:
+
+**main.cpp**
+```
+#include "utils.h"
+int main() {
+    printMessage();
+    return 0;
+}
+```
+
+**utils.cpp**
+```
+#include <iostream>
+void printMessage() {
+    std::cout << "Hello from utils!" << std::endl;
+}
+```
+This is the step-by-step compilation and linking process:
+```
+g++ -c main.cpp     # → main.o
+g++ -c utils.cpp    # → utils.o
+g++ main.o utils.o -o app   # linking step!
+```
+During Linking the following steps are executed:
+
+- **Symbol Resolution**
+
+	**main.o** uses printMessage(), but doesn’t define it
+
+	**utils.o** defines printMessage()
+
+	The linker matches them and connects the call
+
+- **Memory Layout**
+Code sections (.text), data (.data), BSS (.bss) are placed in memory.
+In embedded systems, the linker uses a linker script to define where Flash and RAM begin/end
+
+- **Relocation**
+Relative and absolute addresses inside .o files are patched to correct values
+
+- **Library Linking**
+If your code uses functions from the C++ standard library (like std::cout), the linker pulls in pieces from libstdc++.a, libc.a, etc.
+
 
 ## GCC common flags
 GCC stands for GNU Compiler for C/C++ (GCC). **gcc** and **g++** both compile C codes into the assembly/object files. If we use `-c` flag, the output will be the object file, otherwise the output will be the executable:
