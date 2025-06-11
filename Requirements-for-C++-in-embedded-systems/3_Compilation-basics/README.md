@@ -13,7 +13,7 @@ Assembly (.s)
    ↓  [Assembler: ASM → Machine code]
 Object file (.o)
    ↓  [Linker: combines .o + startup + script]
-Final Executable (.elf / .bin / .hex)
+Final Executable (.exe / .elf / .bin)
 ```
 ### Preprocessor
 The preprocessor takes the C code and generates the .i file. The following command can be used:
@@ -59,6 +59,8 @@ The following gcc command can be used:
 `g++ -c main.s -o main.o`
 
 At the end, we will have the object file main.o which is a binary file. 
+### Linker
+
 ## GCC common flags
 GCC stands for GNU Compiler for C/C++ (GCC). **gcc** and **g++** both compile C codes into the assembly/object files. If we use `-c` flag, the output will be the object file, otherwise the output will be the executable:
 ```
