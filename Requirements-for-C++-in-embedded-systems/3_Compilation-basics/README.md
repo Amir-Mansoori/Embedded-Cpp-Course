@@ -16,7 +16,7 @@ Object file (.o)
 Final Executable (.elf / .bin / .hex)
 ```
 ## GCC Essentials
-Stands for GNU Compiler for C/C++ (GCC). gcc and g++ both compile C codes into the assembly/object files. If we use `-c` flag, the output will be the object file, otherwise the output will be the executable:
+Stands for GNU Compiler for C/C++ (GCC). **gcc** and **g++** both compile C codes into the assembly/object files. If we use `-c` flag, the output will be the object file, otherwise the output will be the executable:
 ```
 gcc main.c -o main
 g++ main.cpp -o main
@@ -37,3 +37,30 @@ common flags used in gcc:
 |-Wall	|Enable all warnings
 |-T link.ld	|Use custom linker script
 
+## make
+make is a **build automation** tool that helps you compile large C/C++ projects. Instead of manually typing `g++ main.cpp utils.cpp -o app` every time you make a change, you write rules in a file called a Makefile.
+
+We meed to define rules in a Makefile like:
+```
+target: dependencies
+    commands to build target
+```
+**make** reads this file and only rebuilds what changed (based on file timestamps).
+It is extremely fast, but low-level and manual.
+
+ ### Why Use make?
+ - Useful for small to medium projects
+ - Great control over the build process
+ - Works with any compiler (e.g. gcc, g++, arm-none-eabi-gcc)
+## CMake
+CMake is a **build system generator**. It generates Makefiles (or project files for other build systems like Visual Studio or Ninja) from a more readable and modular input file called **CMakeLists.txt**.
+
+We need to write build configuration in CMakeLists.txt
+
+CMake outputs a native build system (like a Makefile), then you run make or another build command
+
+### Why Use CMake?
+- Supports multi-platform and cross-compilation
+- Works well with IDEs and toolchains
+- Makes it easier to manage complex or modular projects
+- Standard for many open-source and embedded C++ projects
