@@ -38,16 +38,3 @@ Final Executable (.elf / .bin / .hex)
 |-c	|Compile only, no linking
 |-o	| Output file name
 
-🧠 Key Concepts
-📌 Storage Duration
-Keyword	Lifetime	Scope
-int x; (global)	Static	Global
-static int x;	Static	File (internal linkage)
-static int x; (inside function)	Static	Function
-int x; (inside function)	Automatic	Function
-
-📌 Linkage
-Type	Meaning
-External (default for globals)	Visible across files
-Internal (static)	Visible only in the current file
-None (locals)	Only usable within function
