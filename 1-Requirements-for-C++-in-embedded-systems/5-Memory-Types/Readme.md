@@ -27,3 +27,8 @@ In terms of Reading/Writing from/to memory, we can divide the memories into **RO
   <img src="https://github.com/Amir-Mansoori/Embedded-Cpp-Course/blob/main/Images/dram.png" width="200" height="400"/>
   <p><strong>Figure 1:</strong> DRAM cell structure with periodic refreshing of capacitors</p>
 </div >
+
+<div align="center">
+  <img src="https://github.com/Amir-Mansoori/Embedded-Cpp-Course/blob/main/Images/sram.png" width="300" height="400"/>
+  <p><strong>Figure 2:</strong> SRAM cell structure </p>
+</div >
