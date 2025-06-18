@@ -43,7 +43,7 @@ main:
     popq    %rbp
     ret
 ```
-if you use the assembler on:
+if you use the compiler on:
 ```
 int main() {
     return 0;
