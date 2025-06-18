@@ -29,3 +29,9 @@ When power is applied or a reset is triggered:
 |.stack	|Used for local variables, function calls, etc.|
 
 These are defined in the linker script (e.g. STM32F4.ld)
+
+The following figure shows the order of these sections in memory:
+
+<p align="center">
+  <img src="https://github.com/Amir-Mansoori/Embedded-Cpp-Course/blob/main/Images/memory.png" alt="Figure 1: Memory sections" />
+</p>
