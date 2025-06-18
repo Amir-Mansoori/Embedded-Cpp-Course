@@ -24,7 +24,7 @@ When power is applied or a reset is triggered:
 ---------|------
 |.text	|Executable code (e.g., functions, main) stored in Flash|
 |.data	|Initialized global/static variables (copied from Flash to RAM)|
-|.bss	  |Uninitialized globals/statics (zero-initialized in RAM)|
+|.bss	  |Uninitialized globals/statics (will be zero-initialized in RAM during runtime)|
 |.heap	|Dynamically allocated memory (new/malloc)|
 |.stack	|Used for local variables, function calls, etc.|
 
