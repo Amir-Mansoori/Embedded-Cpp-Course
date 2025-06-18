@@ -22,3 +22,7 @@ In terms of Reading/Writing from/to memory, we can divide the memories into **RO
 | FLASH (non-volatile)     | SD cards| Storing firmware, file systems, or OS images
 | SRAM (volatile)  | Cache memories | storing small amount of memories that can be accessed very fast (Stack, heap, cache, runtime variables)
 | DRAM (volatile)  | DDR memories | slower than SRAM, good for storing larger data like images or video frames
+
+<p align="center">
+  <img src="[https://github.com/Amir-Mansoori/Embedded-Cpp-Course/blob/main/Images/memory.png](https://github.com/Amir-Mansoori/Embedded-Cpp-Course/blob/main/Images/dram.png)" alt="DRAM cell structure with continuous refreshing of capacitors to retain data" />
+</p>
