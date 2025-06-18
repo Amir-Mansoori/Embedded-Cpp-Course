@@ -10,7 +10,7 @@ When power is applied or a reset is triggered:
  - Startup Code (CRT0 or startup.s) runs:
    - Written in assembly (provided by toolchain or written manually).
    - It:
-     - Sets up the stack pointer
+     - Sets up the **stack pointer** (the starting address of the stack memory holding local functions and variables, ...)
      - Initializes the BSS section (clears uninitialized globals)
      - Initializes the data section (copies initialized data from Flash to RAM)
      - Optionally initializes SystemInit() if present
