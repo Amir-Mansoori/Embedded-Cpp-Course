@@ -19,6 +19,12 @@ When power is applied or a reset is triggered:
    - Calls constructors for global and static C++ objects before main() is run.
    - Destructors may not be called unless you explicitly handle shutdown.
 
+Note that **SystemInit()** function:
+- Sets up clocks and PLL
+- Configures vector table offset
+- Enables peripherals like FPU
+
+It’s usually provided in a CMSIS file like system_stm32f4xx.c.
 ## Key Sections in Memory:
 |Section | Purpose|
 ---------|------
