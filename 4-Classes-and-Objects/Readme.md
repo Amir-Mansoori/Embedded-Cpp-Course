@@ -108,6 +108,7 @@ Inside a class, `this` is a pointer to the current object - the instance on whic
 - Disambiguates between member variables and parameters  
 - Allows **chaining** methods (`return this;`)
 
+Example1:
 ```cpp
 class Sensor {
 private:
@@ -118,6 +119,29 @@ public:
         this->id = id;  // clearly assign parameter to member
     }
 };
+```
+Example2:
+```cpp
+class Motor {
+private:
+    int speed;
+
+public:
+    Motor& setSpeed(int s) {
+        speed = s;
+        return *this;
+    }
+
+    Motor& stop() {
+        speed = 0;
+        return *this;
+    }
+};
+
+int main(){
+    Motor m;
+    m.setSpeed(100).stop();  // Chaining
+}
 ```
 
 ---
