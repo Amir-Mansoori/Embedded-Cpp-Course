@@ -100,7 +100,9 @@ public:
 
 ### ✅ 5. The `this` Pointer  
 **📌 What:**  
-Inside a class, `this` is a pointer to the current object.
+The this pointer is an implicit pointer available inside **all non-static member functions** of a class.
+
+Inside a class, `this` is a pointer to the current object - the instance on which the method was called.
 
 **🎯 Why:**  
 - Disambiguates between member variables and parameters  
