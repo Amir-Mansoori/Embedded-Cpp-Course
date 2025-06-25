@@ -219,22 +219,55 @@ The **vtable** is a compiler-generated table holding function pointers for virtu
 
 ## 🧱 Abstract Base Classes and Pure Virtual Functions
 
-An abstract class **cannot be instantiated** and is used to define a common interface.
+In C++, abstract base classes and interface classes provide a way to define **common behaviors** without implementing them, allowing derived classes to define specific logic.
+
+---
+
+## 🧱 Abstract Base Class
+
+An **abstract base class** is a class that contains at least **one pure virtual function** (i.e. function with = 0). You cannot create objects from it.
+
+### ✅ Syntax
+
+```cpp
+class Shape {
+public:
+    virtual void draw() = 0; // Pure virtual function
+};
+```
+
+Shape is abstract because draw() has no body.
+
+Any class that inherits from Shape must implement draw().
+
+
+
+### 🔍 Key Points
+- Cannot be instantiated
+- Can contain implemented functions and member variables
+- Used as a common base for multiple related classes
+
+### ✅ Example
 
 ```cpp
 class Shape {
 public:
     virtual void draw() = 0; // pure virtual
+    virtual ~Shape() = default;
 };
-```
 
-Derived classes **must** implement `draw()`.
-
-```cpp
 class Circle : public Shape {
 public:
     void draw() override {
-        std::cout << "Drawing a circle
+        std::cout << "Drawing Circle
+";
+    }
+};
+
+class Square : public Shape {
+public:
+    void draw() override {
+        std::cout << "Drawing Square
 ";
     }
 };
@@ -242,9 +275,11 @@ public:
 
 ---
 
-## 🔌 Interface Classes
+## 🔌 Interface Class
 
-An interface class is a class with **only pure virtual functions**.
+An **interface class** is a special type of abstract class where **all functions are pure virtual**, and it contains **no data members or implementations**.
+
+### ✅ Syntax
 
 ```cpp
 class Printable {
@@ -254,8 +289,59 @@ public:
 };
 ```
 
+### ✅ Example
+
+```cpp
+class Document : public Printable {
+public:
+    void print() override {
+        std::cout << "Printing Document
+";
+    }
+};
+```
+
 ---
 
+## 🧠 Why Use These?
+
+| Use Case                          | Abstract Base Class      | Interface Class              |
+|----------------------------------|---------------------------|------------------------------|
+| Provide default/shared behavior  | ✅ Yes                    | ❌ No                        |
+| Define required functions only   | ✅ Yes                    | ✅ Yes                       |
+| Enable polymorphic behavior      | ✅ Yes                    | ✅ Yes                       |
+| Represent contract/API only      | 🚫 Not ideal              | ✅ Ideal                     |
+
+---
+
+## 🔁 Embedded System Use Case
+
+- Define a `Sensor` interface:
+```cpp
+class Sensor {
+public:
+    virtual int read() = 0;
+    virtual void calibrate() = 0;
+    virtual ~Sensor() = default;
+};
+```
+
+- Implement different sensors:
+```cpp
+class TempSensor : public Sensor {
+public:
+    int read() override { return 25; }
+    void calibrate() override { /* do something */ }
+};
+
+class LightSensor : public Sensor {
+public:
+    int read() override { return 300; }
+    void calibrate() override { /* do something else */ }
+};
+```
+
+---
 ## ✅ Summary Table
 
 | Feature                   | Description                                           |
