@@ -54,13 +54,15 @@ void countCalls() {
 
 int main(){
 
-        countCalls();
-        countCalls();
-        countCalls();
-
-return 0;
-
+    countCalls();
+    countCalls();
+    countCalls();
+    return 0;
 }
+// Output is:
+// count = 1
+// count = 2
+// count = 3
 ```
 
 ---
