@@ -42,10 +42,24 @@ auto x = 42;  // Type deduction (int)
 - Limits visibility to file (when used at global scope)
 
 ```cpp
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
 void countCalls() {
     static int count = 0;
     count++;
-    Serial.println(count);
+    printf("count = %d\n",count);
+}
+
+int main(){
+
+        countCalls();
+        countCalls();
+        countCalls();
+
+return 0;
+
 }
 ```
 
