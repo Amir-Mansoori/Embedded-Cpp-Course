@@ -57,8 +57,10 @@ Control which parts of the code can access members of a class.
 | `protected` | Accessible in class and subclasses     |
 
 **Private** members are only accessible within the class defining them.
+
 **Protected** members are accessible in the class that defines them and in classes that inherit from that class.
-Both are also accessible by friends of their class, and in the case of protected members, by friends of their derived classes.
+
+Both (private and protected) are also accessible by friends of their class, and in the case of protected members, by friends of their derived classes.
 
 **🎯 Why:**  
 - Protect sensitive data (like internal sensor state)  
