@@ -73,7 +73,7 @@ Polymorphism means **“many forms”**. In C++, it enables objects of different
 
 ---
 
-## ✅ Why Use Polymorphism?
+### ✅ Why Use Polymorphism?
 
 - Reuse a **common interface**
 - Dynamically **switch behavior at runtime**
@@ -81,7 +81,7 @@ Polymorphism means **“many forms”**. In C++, it enables objects of different
 
 ---
 
-## 📌 Example: Polymorphism in Action
+### 📌 Example: Polymorphism in Action
 
 ```cpp
 class Animal {
@@ -121,7 +121,7 @@ int main() {
 
 ---
 
-## ⏱ Static vs Dynamic Polymorphism
+### ⏱ Static vs Dynamic Polymorphism
 
 | Type                 | Description                              | Binding Time | Example                          |
 |----------------------|------------------------------------------|---------------|-----------------------------------|
@@ -130,7 +130,7 @@ int main() {
 
 ---
 
-## 🧠 How It Works: Under the Hood
+### 🧠 How It Works: Under the Hood
 
 - Each class with virtual functions has a **vtable** (virtual table)
 - Each object has a hidden pointer to this table: the **vptr**
@@ -138,7 +138,7 @@ int main() {
 
 ---
 
-## 🧱 Embedded Perspective
+### 🧱 Embedded Perspective
 
 - **Use it** for device abstraction (e.g. `Sensor` as base, `TempSensor` and `LightSensor` as derived)
 - **Costs**:
@@ -147,7 +147,7 @@ int main() {
 
 ---
 
-## 🧰 Embedded Example
+### 🧰 Embedded Example of polymorphism
 
 ```cpp
 class Sensor {
@@ -173,20 +173,6 @@ void logSensor(Sensor* s) {
     std::cout << "Sensor reading: " << s->readValue() << std::endl;
 }
 ```
-
----
-### Static binding:
-```cpp
-Dog d;
-d.speak(); // Determined at compile-time
-```
-
-### Dynamic binding:
-```cpp
-Animal* a = new Dog();
-a->speak(); // Determined at run-time via vtable
-```
-
 ---
 
 ## 💣 Virtual Destructors
