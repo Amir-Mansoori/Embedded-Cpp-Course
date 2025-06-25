@@ -69,7 +69,112 @@ public:
 ---
 
 ## ⏱ Polymorphism and Late Binding
+Polymorphism means **“many forms”**. In C++, it enables objects of different classes to be treated as objects of a **common base class** while behaving differently at runtime.
 
+---
+
+## ✅ Why Use Polymorphism?
+
+- Reuse a **common interface**
+- Dynamically **switch behavior at runtime**
+- Improve **extensibility** and code reusability
+
+---
+
+## 📌 Example: Polymorphism in Action
+
+```cpp
+class Animal {
+public:
+    virtual void speak() {
+        std::cout << "Some generic animal sound\n";
+    }
+};
+
+class Dog : public Animal {
+public:
+    void speak() override {
+        std::cout << "Woof\n";
+    }
+};
+
+class Cat : public Animal {
+public:
+    void speak() override {
+        std::cout << "Meow\n";
+    }
+};
+
+void makeItSpeak(Animal* a) {
+    a->speak(); // Resolved at runtime
+}
+```
+
+```cpp
+int main() {
+    Dog d;
+    Cat c;
+    makeItSpeak(&d); // Output: Woof
+    makeItSpeak(&c); // Output: Meow
+}
+```
+
+---
+
+## ⏱ Static vs Dynamic Polymorphism
+
+| Type                 | Description                              | Binding Time | Example                          |
+|----------------------|------------------------------------------|---------------|-----------------------------------|
+| Static Polymorphism  | Function overloading or templates         | Compile-time | `void func(int);` and `func(float);` |
+| Dynamic Polymorphism | Virtual functions and base class pointers | Run-time     | `Animal* a = new Dog();`          |
+
+---
+
+## 🧠 How It Works: Under the Hood
+
+- Each class with virtual functions has a **vtable** (virtual table)
+- Each object has a hidden pointer to this table: the **vptr**
+- When a virtual function is called, C++ uses the vptr to look up the right function in the vtable
+
+---
+
+## 🧱 Embedded Perspective
+
+- **Use it** for device abstraction (e.g. `Sensor` as base, `TempSensor` and `LightSensor` as derived)
+- **Costs**:
+  - Small memory overhead due to vptr
+  - Slight runtime overhead due to function pointer indirection
+
+---
+
+## 🧰 Embedded Example
+
+```cpp
+class Sensor {
+public:
+    virtual int readValue() = 0;
+};
+
+class TempSensor : public Sensor {
+public:
+    int readValue() override {
+        return 42; // Simulate temperature reading
+    }
+};
+
+class LightSensor : public Sensor {
+public:
+    int readValue() override {
+        return 300; // Simulate light reading
+    }
+};
+
+void logSensor(Sensor* s) {
+    std::cout << "Sensor reading: " << s->readValue() << std::endl;
+}
+```
+
+---
 ### Static binding:
 ```cpp
 Dog d;
